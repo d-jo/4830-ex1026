@@ -4,24 +4,32 @@ import java.util.List;
 
 public class A {
    Node m1(List<Node> nodes, String p) {
-      // TODO: Your answer
+	   printContains(nodes, p);
       // other implementation
       return null;
    }
 
    Edge m2(List<Edge> edgeList, String p) {
-      // TODO: Your answer
+      printContains(edgeList, p);
       // other implementation
       return null;
    }
 
-   // TODO: Your answer
-   // ? extractedMethod(?) {
-   //
-   // }
+   public <T extends Containable> void printContains(List<T> l, String p) {
+	   for (T o  : l) {
+		   if (o.contains(p)) {
+			   System.out.println(o);
+		   }
+	   }
+   }
+   
 }
 
-class Node {
+interface Containable {
+	public abstract boolean contains(String p);
+}
+
+class Node implements Containable {
    String name;
 
    public boolean contains(String p) {
@@ -29,7 +37,7 @@ class Node {
    }
 }
 
-class Edge {
+class Edge implements Containable {
    String name;
 
    public boolean contains(String p) {
