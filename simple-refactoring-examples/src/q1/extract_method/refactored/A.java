@@ -15,8 +15,8 @@ public class A {
       return null;
    }
 
-   public <T extends Containable> void printContains(List<T> l, String p) {
-	   for (T o  : l) {
+   public <T extends GraphObject> void printContains(List<T> l, String p) {
+	   for (T o : l) {
 		   if (o.contains(p)) {
 			   System.out.println(o);
 		   }
@@ -25,22 +25,17 @@ public class A {
    
 }
 
-interface Containable {
-	public abstract boolean contains(String p);
-}
-
-class Node implements Containable {
+class GraphObject {
    String name;
 
    public boolean contains(String p) {
       return name.contains(p);
-   }
+   }	
 }
 
-class Edge implements Containable {
-   String name;
+class Node extends GraphObject {
 
-   public boolean contains(String p) {
-       return name.contains(p);
-   }
+}
+
+class Edge extends GraphObject {
 }
