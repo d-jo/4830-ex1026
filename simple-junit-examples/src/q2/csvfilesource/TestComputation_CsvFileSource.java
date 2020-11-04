@@ -8,12 +8,12 @@ public class TestComputation_CsvFileSource {
 
    // TODO: Write your answer to complete this test case
    @ParameterizedTest
-   @CsvFileSource(resources = "")
-   public void testGetDiscount() throws Exception {
+   @CsvFileSource(resources = "computation_dataset.csv")
+   public void testGetDiscount(int i1, int i2, int exp) throws Exception {
 
 	  Computation com = new Computation();
-      int result = 0; 
-      Assert.assertEquals(result, null);
+      int result = com.getDiscount(i1, i2); 
+      Assert.assertEquals(result, exp);
 
    }
 }
